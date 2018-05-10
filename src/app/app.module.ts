@@ -14,6 +14,7 @@ import { ApiService } from './api.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     HeaderComponent,
     FooterComponent,
     WelcomeComponent,
+    ProfileComponent,
 
   ],
   imports: [
