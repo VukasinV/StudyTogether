@@ -6,6 +6,7 @@ import { FormsModule,
 ReactiveFormsModule,
  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 // Here we import custom components
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { ProfileComponent } from './profile/profile.component';
     FooterComponent,
     WelcomeComponent,
     ProfileComponent,
+    LoginComponent,
 
   ],
   imports: [
@@ -32,6 +35,11 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: '', component: WelcomeComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+    ])
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
