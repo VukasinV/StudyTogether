@@ -38,10 +38,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  // Vukasin commit
-  
+  showWarning() {
 
-
-  // Lana commit
-  
+  }
 }
