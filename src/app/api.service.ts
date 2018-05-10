@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { headersToString } from 'selenium-webdriver/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ApiService {
@@ -8,20 +10,31 @@ export class ApiService {
   
   constructor (private http: HttpClient) { }
 
-  // test api call
+  // get list of all users
   getAllUsers () {
     return this.http.get(`${this.URL_API}/User`, 
     { headers: {
+      'Content-Type': 'application/json',
       'conformationNeeded': 'false'}
     });
   }
 
-  postUser(newUser) {
-    console.log(newUser);
-    this.http.post(`${this.URL_API}/User`, JSON.stringify(newUser),
+  // api call for creating new user
+  createUser(newUser) {
+    return this.http.post(`${this.URL_API}/User`, newUser,
       { headers: {
         'Content-Type': 'application/json'
-      }})
-      .subscribe(res => console.log(res));
+      }});
+  }
+
+  // api call for logging in, confirming user credentials
+  login(username, password) {
+    return this.http.get(`${this.URL_API}/User`, 
+    { headers: {
+      'Content-Type': 'application/json',
+      'conformationNeeded': 'true',
+      'username': username,
+      'password': password
+    }});
   }
 }

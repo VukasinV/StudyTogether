@@ -4,8 +4,11 @@ import { FormsModule,
 FormGroup,
 FormControl,
 ReactiveFormsModule,
-Validators
+Validators,
+FormBuilder
  } from '@angular/forms';
+import { Observable } from 'rxjs/Observable'; 
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-register',
@@ -13,21 +16,27 @@ Validators
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  constructor(private api: ApiService) { }
 
   createUserForm: FormGroup;
-
+  username = '';
+  password = '';
+  email = '';
+  fullname = '';
+  
+  constructor(private api: ApiService, private fb: FormBuilder) { }
 
   createUser(newUser) {
-    this.api.postUser(newUser);
+    this.api.createUser(newUser).subscribe(res => console.log(res));
   }
 
   ngOnInit() {
-    this.createUserForm = new FormGroup({
+    this.createUserForm = this.fb.group({
       Username: new FormControl('', Validators.required),
       Password: new FormControl('', [Validators.required, Validators.minLength(8)]),
-      Email: new FormControl('',Validators.required),
-      Fullname: new FormControl('',Validators.required)
-    })
+      Email: new FormControl('', Validators.required),
+      Fullname: new FormControl('', Validators.required)
+    });
   }
+
+  // Vukasin commit
 }

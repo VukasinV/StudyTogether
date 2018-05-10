@@ -11,12 +11,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { ApiService } from './api.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
+    HeaderComponent,
+    FooterComponent,
 
   ],
   imports: [
