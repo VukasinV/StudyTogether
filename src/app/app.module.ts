@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { ApiService } from './api.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
     RegisterComponent,
     HeaderComponent,
     FooterComponent,
+    WelcomeComponent,
 
   ],
   imports: [
