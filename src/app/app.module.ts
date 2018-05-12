@@ -40,7 +40,7 @@ const appRoutes = [
     ProfileComponent,
     LoginComponent,
     HomeComponent,
-
+    
   ],
   imports: [
     BrowserModule,
