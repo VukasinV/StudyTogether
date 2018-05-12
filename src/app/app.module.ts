@@ -17,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes = [
   { path: '', 
@@ -25,7 +26,9 @@ const appRoutes = [
      { path : '', component: LoginComponent },
      { path : 'register', component: RegisterComponent }
    ]
-}];
+},
+{ path: 'home', component: HomeComponent }
+];
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ const appRoutes = [
     WelcomeComponent,
     ProfileComponent,
     LoginComponent,
+    HomeComponent,
 
   ],
   imports: [

@@ -1,0 +1,8 @@
+.vertically-align-center {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.display-table {
+    display: table;
+}

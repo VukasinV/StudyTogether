@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { Route, Router } from '@angular/router';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-login',
@@ -22,13 +23,23 @@ export class LoginComponent implements OnInit {
   }
 
   login(credentials) {
-    this.api.login(credentials.Username, credentials.Password).subscribe(res => {
-      console.log(res);
-    });
+    this.api.login(credentials.Username, credentials.Password).subscribe(data => {
+      console.log('success', data);
+      this.router.navigate(['home']);
+    },
+  error => console.log(error));
   }
 
   goToRegister() {
     this.router.navigate(['register']);
+  }
+
+  test () {
+    console.log(this.router.url);
+  }
+
+  getRoute() {
+    return this.router.url;
   }
 
 }
