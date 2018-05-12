@@ -12,6 +12,7 @@ import 'rxjs/add/operator/map';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  failedLogin: boolean;
 
   constructor(private fb: FormBuilder, private api: ApiService, private router: Router) { }
 
@@ -24,12 +25,14 @@ export class LoginComponent implements OnInit {
 
   login(credentials) {
     this.api.login(credentials.Username, credentials.Password).subscribe(data => {
-      console.log('success', data);
-      this.router.navigate(['home']);
-    },
-  error => console.log(error));
+        console.log('success', data);
+        this.router.navigate(['home']);
+      },
+      error => {
+        this.failedLogin = true;
+        console.log(error);
+  });
   }
-
   goToRegister() {
     this.router.navigate(['register']);
   }
