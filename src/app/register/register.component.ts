@@ -19,10 +19,8 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   createUserForm: FormGroup;
-  username = '';
-  password = '';
-  email = '';
-  fullname = '';
+
+  registered = false;
   
   constructor(private api: ApiService, private fb: FormBuilder, private router: Router) { }
 
@@ -37,7 +35,10 @@ export class RegisterComponent implements OnInit {
   }
   
   createUser(newUser) {
-    this.api.createUser(newUser).subscribe(res => console.log(res));
+    this.api.createUser(newUser).subscribe(res => {
+      console.log(res);
+      this.registered = true;
+    });
   }
 
   goToLogin() {
