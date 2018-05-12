@@ -18,6 +18,14 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 
+const appRoutes = [
+  { path: '', 
+  component: WelcomeComponent,
+   children: [
+     { path : '', component: LoginComponent },
+     { path : 'register', component: RegisterComponent }
+   ]
+}];
 
 @NgModule({
   declarations: [
@@ -35,11 +43,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: '', component: WelcomeComponent },
-      { path: 'register', component: RegisterComponent },
-      { path: 'login', component: LoginComponent },
-    ])
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

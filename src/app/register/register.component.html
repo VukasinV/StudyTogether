@@ -52,10 +52,15 @@
     </div>
 
     <button type="submit" 
-    class="btn btn-default" 
+    class="btn btn-primary" 
     (click)="createUser(createUserForm.value)" 
     [disabled]="!createUserForm.valid" style="width: 100%">
     SUBMIT
+  </button>
+  <button class="btn btn-warning"
+  (click)="goToLogin()"
+  style="width: 100%; margin-top: 10px">
+    TAKE ME TO LOGIN
   </button>
   </form>
 </div>
