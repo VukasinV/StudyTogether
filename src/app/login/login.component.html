@@ -35,4 +35,10 @@
     I DON'T HAVE ACCOUNT
   </button>
   </form>
+
+  <div class="alert alert-danger" 
+  *ngIf="failedLogin">
+    <strong> Wrong username or password </strong>
+  </div>
+
 </div>
