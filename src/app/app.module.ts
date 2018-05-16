@@ -39,6 +39,7 @@ import { LoginComponent } from './login/login.component';
       { path: '', component: WelcomeComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'profile', component: ProfileComponent },
     ])
   ],
   providers: [ApiService],
