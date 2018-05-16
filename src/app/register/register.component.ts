@@ -9,6 +9,7 @@ FormBuilder
  } from '@angular/forms';
 import { Observable } from 'rxjs/Observable'; 
 import { User } from '../model/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,17 +19,12 @@ import { User } from '../model/user';
 export class RegisterComponent implements OnInit {
 
   createUserForm: FormGroup;
-  username = '';
-  password = '';
-  email = '';
-  fullname = '';
+
+  registered = false;
   
-  constructor(private api: ApiService, private fb: FormBuilder) { }
+  constructor(private api: ApiService, private fb: FormBuilder, private router: Router) { }
 
-  createUser(newUser) {
-    this.api.createUser(newUser).subscribe(res => console.log(res));
-  }
-
+  
   ngOnInit() {
     this.createUserForm = this.fb.group({
       Username: new FormControl('', Validators.required),
@@ -36,6 +32,17 @@ export class RegisterComponent implements OnInit {
       Email: new FormControl('', Validators.required),
       Fullname: new FormControl('', Validators.required)
     });
+  }
+  
+  createUser(newUser) {
+    this.api.createUser(newUser).subscribe(res => {
+      console.log(res);
+      this.registered = true;
+    });
+  }
+
+  goToLogin() {
+    this.router.navigate(['']);
   }
 
   showWarning() {

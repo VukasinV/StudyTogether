@@ -17,7 +17,19 @@ import { FooterComponent } from './footer/footer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
+const appRoutes = [
+  { path: '', 
+  component: WelcomeComponent,
+   children: [
+     { path : '', component: LoginComponent },
+     { path : 'register', component: RegisterComponent }
+   ]
+},
+{ path: 'home', component: HomeComponent },
+{ path: 'profile', component: ProfileComponent },
+];
 
 @NgModule({
   declarations: [
@@ -28,6 +40,7 @@ import { LoginComponent } from './login/login.component';
     WelcomeComponent,
     ProfileComponent,
     LoginComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -35,12 +48,16 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
     RouterModule.forRoot([
       { path: '', component: WelcomeComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'profile', component: ProfileComponent },
     ])
+=======
+    RouterModule.forRoot(appRoutes),
+>>>>>>> 932434f91cd703c97bc5562fbfa75d877d7a83d0
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

@@ -1,3 +1,44 @@
-<p>
-  login works!
-</p>
+<div class="container col-lg-6">
+  <form [formGroup]="loginForm">
+
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text"
+              class="form-control"
+              formControlName="Username">        
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" 
+              class="form-control"
+              formControlName="Password">
+    </div>
+
+    <div class="alert alert-danger" 
+    *ngIf="loginForm.controls['Username'].touched 
+    && loginForm.controls['Password'].touched
+    && loginForm.controls['Username'].invalid
+    && loginForm.controls['Password'].invalid">
+      <strong> You need to provide username and password. </strong>
+    </div>
+
+    <button type="submit" 
+    class="btn btn-primary" 
+    (click)="login(loginForm.value)" 
+    [disabled]="!loginForm.valid" style="width: 100%">
+    LOGIN
+  </button>
+  <button class="btn btn-warning"
+  (click)="goToRegister()"
+  style="width: 100%; margin-top: 10px">
+    I DON'T HAVE ACCOUNT
+  </button>
+  </form>
+
+  <div class="alert alert-danger" 
+  *ngIf="failedLogin">
+    <strong> Wrong username or password </strong>
+  </div>
+
+</div>
