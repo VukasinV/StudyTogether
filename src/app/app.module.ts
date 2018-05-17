@@ -42,14 +42,23 @@ const appRoutes = [
     ProfileComponent,
     LoginComponent,
     HomeComponent,
-
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
+    RouterModule.forRoot([
+      { path: '', component: WelcomeComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'profile', component: ProfileComponent },
+    ])
+=======
     RouterModule.forRoot(appRoutes),
+>>>>>>> 932434f91cd703c97bc5562fbfa75d877d7a83d0
   ],
   providers: [
     ApiService,
