@@ -5,7 +5,8 @@ FormGroup,
 FormControl,
 ReactiveFormsModule,
 Validators,
-FormBuilder
+FormBuilder,
+NgForm
  } from '@angular/forms';
 import { Observable } from 'rxjs/Observable'; 
 import { User } from '../model/user';
