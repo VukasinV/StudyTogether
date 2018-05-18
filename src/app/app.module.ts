@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule,
 ReactiveFormsModule,
  } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 // Here we import custom components
@@ -18,6 +18,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 const appRoutes = [
   { path: '', 
@@ -50,7 +51,14 @@ const appRoutes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [ApiService],
+  providers: [
+    ApiService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

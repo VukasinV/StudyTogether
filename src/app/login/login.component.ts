@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   login(credentials) {
     this.api.login(credentials.Username, credentials.Password).subscribe(data => {
-        console.log('success', data);
+        localStorage.setItem('token', data.toString());
         this.router.navigate(['home']);
       },
       error => {
@@ -35,10 +35,6 @@ export class LoginComponent implements OnInit {
   }
   goToRegister() {
     this.router.navigate(['register']);
-  }
-
-  test () {
-    console.log(this.router.url);
   }
 
   getRoute() {

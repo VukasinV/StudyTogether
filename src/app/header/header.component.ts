@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +9,16 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  username: string;
+
+  constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit() {
+    this.api.test().subscribe(res => this.username = res.toString());
   }
 
   logout() {
+    localStorage.clear();
     this.router.navigate(['']);
   }
 

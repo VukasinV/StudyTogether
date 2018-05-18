@@ -6,7 +6,11 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class ApiService {
   
+  // Development link
   URL_API = 'http://localhost:59105/api';
+
+  // Production link
+  // URL_API = 'http://studytogetherbackend.azurewebsites.net/api';
   
   constructor (private http: HttpClient) { }
 
@@ -14,27 +18,35 @@ export class ApiService {
   getAllUsers () {
     return this.http.get(`${this.URL_API}/User`, 
     { headers: {
-      'Content-Type': 'application/json',
       'conformationNeeded': 'false'}
     });
   }
 
   // api call for creating new user
   createUser(newUser) {
-    return this.http.post(`${this.URL_API}/User`, newUser,
-      { headers: {
-        'Content-Type': 'application/json'
-      }});
+    return this.http.post(`${this.URL_API}/User`, newUser);
   }
 
   // api call for logging in, confirming user credentials
-  login(username, password) {
-    return this.http.get(`${this.URL_API}/User`, 
-    { headers: {
-      'Content-Type': 'application/json',
-      'conformationNeeded': 'true',
-      'username': username,
-      'password': password
-    }});
-  }
+  // login(username, password) {
+  //   return this.http.get(`${this.URL_API}/User`, 
+  //   { headers: {
+  //     'Content-Type': 'application/json',
+  //     'conformationNeeded': 'true',
+  //     'username': username,
+  //     'password': password
+  //   }});
+  // }
+
+    login(username, password) {
+    return this.http.post(`${this.URL_API}/Account`, {},
+      { headers: {
+        'username': username,
+        'password': password
+      }});
+    }
+
+    test() {
+      return this.http.get(`${this.URL_API}/Test`);
+    }
 }
