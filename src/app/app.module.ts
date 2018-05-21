@@ -19,6 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { ReviewComponent } from './review/review.component';
 
 const appRoutes = [
   { path: '', 
@@ -42,6 +43,7 @@ const appRoutes = [
     ProfileComponent,
     LoginComponent,
     HomeComponent,
+    ReviewComponent,
     
   ],
   imports: [
