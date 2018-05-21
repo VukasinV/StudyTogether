@@ -49,4 +49,8 @@ export class ApiService {
     test() {
       return this.http.get(`${this.URL_API}/Test`);
     }
+
+    getMeetups() {
+      return this.http.get(`${this.URL_API}/Meeting`);
+    }
 }

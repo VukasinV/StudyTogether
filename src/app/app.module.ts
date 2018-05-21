@@ -7,6 +7,7 @@ ReactiveFormsModule,
  } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+// import { AgGridModule } from 'ag-grid-angular';
 
 // Here we import custom components
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { ReviewComponent } from './review/review.component';
+import { MeetupTableComponent } from './meetup-table/meetup-table.component';
 
 const appRoutes = [
   { path: '', 
@@ -44,6 +46,7 @@ const appRoutes = [
     LoginComponent,
     HomeComponent,
     ReviewComponent,
+    MeetupTableComponent,
     
   ],
   imports: [
@@ -52,6 +55,7 @@ const appRoutes = [
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+    // AgGridModule.withComponents([]),
   ],
   providers: [
     ApiService,
