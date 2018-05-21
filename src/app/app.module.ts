@@ -7,7 +7,7 @@ ReactiveFormsModule,
  } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { AgGridModule } from 'ag-grid-angular';
+//import { AgGridModule } from 'ag-grid-angular';
 
 // Here we import custom components
 import { AppComponent } from './app.component';
@@ -53,7 +53,7 @@ const appRoutes = [
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
-    AgGridModule.withComponents([]),
+    //AgGridModule.withComponents([]),
   ],
   providers: [
     ApiService,
