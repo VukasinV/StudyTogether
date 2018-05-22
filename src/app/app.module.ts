@@ -33,6 +33,7 @@ const appRoutes = [
 },
 { path: 'home', component: HomeComponent },
 { path: 'profile', component: ProfileComponent },
+{ path: 'review', component: ReviewComponent },
 ];
 
 @NgModule({
@@ -55,7 +56,6 @@ const appRoutes = [
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
-    // AgGridModule.withComponents([]),
   ],
   providers: [
     ApiService,
