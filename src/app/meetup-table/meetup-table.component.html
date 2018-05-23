@@ -1,42 +1,22 @@
-<table class="table">
+<table class="table table-hover table-bordered">
     <thead>
         <tr>
-            <th>
-                Description
-            </th>
-            <th>
-                StartsAt
-            </th>
-            <th>
-                Location
-            </th>
-            <th>
-                Capacity
-            </th>
+            <th> Description </th>
+            <th> StartsAt </th>
+            <th> Location </th>
+            <th> Capacity </th>
+            <th> CreatedBy </th>
+            <th> Deatails </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let meetup of meetups">
-            <td>
-                {{meetup.Description}}
-            </td>
-            <td>
-                {{meetup.StartsAt}}
-            </td>
-            <td>
-               {{meetup.Location}} 
-            </td>
-            <td>
-                {{meetup.Capacity}}
-            </td>
-            <td>
-                {{meetup.CreatedBy}}
-            </td>
-            <td *ngFor="let participant of meetup.Participants">
-                <span>
-                    {{participant}}
-                </span>
-            </td>
+            <td> {{meetup.Description}} </td>
+            <td> {{meetup.StartsAt | date:'short' }} </td>
+            <td> {{meetup.Location}} </td>
+            <td> {{meetup.Capacity}} </td>
+            <td> {{meetup.CreatedBy}} </td>
+            <td> <button class="btn" style="width: 100%; height: 100%">DETAILS</button> </td>
         </tr>
     </tbody>
 </table>

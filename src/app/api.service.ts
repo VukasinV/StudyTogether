@@ -27,30 +27,19 @@ export class ApiService {
     return this.http.post(`${this.URL_API}/User`, newUser);
   }
 
-  // api call for logging in, confirming user credentials
-  // login(username, password) {
-  //   return this.http.get(`${this.URL_API}/User`, 
-  //   { headers: {
-  //     'Content-Type': 'application/json',
-  //     'conformationNeeded': 'true',
-  //     'username': username,
-  //     'password': password
-  //   }});
-  // }
+  login(username, password) {
+  return this.http.post(`${this.URL_API}/Account`, {},
+    { headers: {
+      'username': username,
+      'password': password
+    }});
+  }
 
-    login(username, password) {
-    return this.http.post(`${this.URL_API}/Account`, {},
-      { headers: {
-        'username': username,
-        'password': password
-      }});
-    }
+  test() {
+    return this.http.get(`${this.URL_API}/Test`);
+  }
 
-    test() {
-      return this.http.get(`${this.URL_API}/Test`);
-    }
-
-    getMeetups() {
-      return this.http.get(`${this.URL_API}/Meeting`);
-    }
+  getMeetups() {
+    return this.http.get(`${this.URL_API}/Meeting`);
+  }
 }
