@@ -15,7 +15,12 @@ export class MeetupTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.refreshTable();    
+  }
+  
+  refreshTable() {
     this.api.getMeetups().subscribe(data => this.meetups = data);
+    console.log('Table is refreshed!');
   }
 
 

@@ -1,0 +1,45 @@
+<div class="container col-lg-12">
+    <form [formGroup]="form">
+  
+      <div class="form-group">
+        <label> Subject of your meetup will be? </label>
+        <input type="text"
+                class="form-control"
+                formControlName="description">        
+      </div>
+  
+      <div class="form-group">
+        <label> Where will your meetup take place? </label>
+        <input type="text" 
+                class="form-control"
+                formControlName="location">
+      </div>
+
+      <div class="form-group">
+        <label> When it will start? </label>
+        <input type="text" 
+                class="form-control"
+                formControlName="startsAt">
+      </div>
+
+      <div class="form-group">
+        <label> How many people you would like to be on your meeting? </label>
+        <input type="text" 
+                class="form-control"
+                formControlName="capacity">
+      </div>
+  
+      <button type="submit" 
+              class="btn btn-primary" 
+              (click)="createMeetup(form.value)"
+              [disabled]="!form.valid" style="width: 100%">
+      SUBMIT
+    </button>
+
+    <button class="btn" 
+            (click)="close()"
+            style="width: 100%; margin-top: 10px;">
+      CANCEL
+    </button>
+    </form>
+  </div>

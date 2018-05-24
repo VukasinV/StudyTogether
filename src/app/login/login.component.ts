@@ -18,20 +18,21 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      Username: new FormControl('', Validators.required),
-      Password: new FormControl('', Validators.required)
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
     });
   }
 
   login(credentials) {
-    this.api.login(credentials.Username, credentials.Password).subscribe(data => {
+    this.api.login(credentials.username, credentials.password).subscribe(
+      data => {
         localStorage.setItem('token', data.toString());
         this.router.navigate(['home']);
-      },
+      }, 
       error => {
         this.failedLogin = true;
-        console.log(error);
-  });
+        console.log(error.Message);
+    });
   }
   goToRegister() {
     this.router.navigate(['register']);

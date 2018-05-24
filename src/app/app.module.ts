@@ -2,12 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // Here we import modules
-import { FormsModule,
+import { 
+FormsModule,
 ReactiveFormsModule,
  } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-// import { AgGridModule } from 'ag-grid-angular';
+import { 
+  MatDialogModule,
+  MatAutocompleteModule,
+  MatInputModule,
+  MatFormFieldModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Here we import custom components
 import { AppComponent } from './app.component';
@@ -22,6 +28,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { ReviewComponent } from './review/review.component';
 import { MeetupTableComponent } from './meetup-table/meetup-table.component';
+import { MeetupCreateComponent } from './meetup-create/meetup-create.component';
 
 const appRoutes = [
   { path: '', 
@@ -48,7 +55,8 @@ const appRoutes = [
     HomeComponent,
     ReviewComponent,
     MeetupTableComponent,
-    
+    MeetupCreateComponent,
+        
   ],
   imports: [
     BrowserModule,
@@ -56,6 +64,11 @@ const appRoutes = [
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+    MatDialogModule,
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     ApiService,
@@ -65,6 +78,9 @@ const appRoutes = [
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  entryComponents: [
+    MeetupCreateComponent
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
