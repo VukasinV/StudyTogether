@@ -13,7 +13,7 @@ import { MeetupTableComponent } from '../meetup-table/meetup-table.component';
 })
 
 export class HomeComponent implements OnInit {
-  @ViewChild(MeetupTableComponent) mcc: MeetupTableComponent;
+  @ViewChild(MeetupTableComponent) meetupTable: MeetupTableComponent;
 
   constructor(private api: ApiService, public dialog: MatDialog) { }
 
@@ -27,11 +27,7 @@ export class HomeComponent implements OnInit {
       width: '600px',
     });
 
-    const afterMeetupCreated = dialogRef.componentInstance.meetupCreated.subscribe(red => this.refreshTable());
-  }
-
-  refreshTable () {
-    this.mcc.refreshTable();
+    const afterMeetupCreated = dialogRef.componentInstance.meetupCreated.subscribe(red => this.meetupTable.refreshTable());
   }
 
   test() {

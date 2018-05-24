@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { MeetupDatailsComponent } from '../meetup-datails/meetup-datails.component';
 
 @Component({
   selector: 'app-meetup-table',
@@ -10,7 +14,7 @@ export class MeetupTableComponent implements OnInit {
 
   meetups;
 
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService, public dialog: MatDialog) {
 
   }
 
@@ -23,5 +27,14 @@ export class MeetupTableComponent implements OnInit {
     console.log('Table is refreshed!');
   }
 
-
+  showDetails (meetup) {
+    console.log(meetup);
+    const dialogRef = this.dialog.open(MeetupDatailsComponent, {
+      height: '450px',
+      width: '600px',
+      data: {
+        meetup: meetup
+      }
+    });
+  }
 }

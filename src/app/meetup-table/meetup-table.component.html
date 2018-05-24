@@ -6,18 +6,19 @@
             <th> Location </th>
             <th> Capacity </th>
             <th> CreatedBy </th>
-            <th> Deatails </th>
+            <th> Options </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let meetup of meetups">
+        <tr *ngFor="let meetup of meetups | paginate: { itemsPerPage:5, currentPage: p }">
             <td> {{meetup.Description}} </td>
             <td> {{meetup.StartsAt | date:'short' }} </td>
             <td> {{meetup.Location}} </td>
             <td> {{meetup.Capacity}} </td>
             <td> {{meetup.CreatedBy}} </td>
-            <td> <button class="btn" style="width: 100%; height: 100%">DETAILS</button> </td>
+            <td> <button class="btn" style="width: 100%; height: 100%" (click)="showDetails(meetup)">DETAILS</button> </td>
         </tr>
     </tbody>
 </table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 

@@ -14,6 +14,7 @@ import {
   MatInputModule,
   MatFormFieldModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // Here we import custom components
 import { AppComponent } from './app.component';
@@ -29,6 +30,7 @@ import { AuthInterceptor } from './auth.interceptor';
 import { ReviewComponent } from './review/review.component';
 import { MeetupTableComponent } from './meetup-table/meetup-table.component';
 import { MeetupCreateComponent } from './meetup-create/meetup-create.component';
+import { MeetupDatailsComponent } from './meetup-datails/meetup-datails.component';
 
 const appRoutes = [
   { path: '', 
@@ -56,7 +58,7 @@ const appRoutes = [
     ReviewComponent,
     MeetupTableComponent,
     MeetupCreateComponent,
-        
+    MeetupDatailsComponent,    
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,8 @@ const appRoutes = [
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgxPaginationModule,
   ],
   providers: [
     ApiService,
@@ -79,7 +82,8 @@ const appRoutes = [
     }
   ],
   entryComponents: [
-    MeetupCreateComponent
+    MeetupCreateComponent,
+    MeetupDatailsComponent
   ],
   bootstrap: [AppComponent],
 })

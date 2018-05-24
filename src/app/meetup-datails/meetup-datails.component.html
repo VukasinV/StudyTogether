@@ -1,0 +1,27 @@
+<h4> DESCRIPTION </h4> 
+<p> {{data.meetup.Description}} </p>
+<hr>
+
+<h4> STARTS AT </h4>
+<p> {{data.meetup.StartsAt | date: 'short'}} </p>
+<hr>
+
+<h4> LOCATION </h4>
+<p> {{data.meetup.Location}} </p>
+<hr>
+
+<h4> CAPACITY </h4>
+<p> {{data.meetup.Capacity}}</p>
+<hr>
+
+<h4> MEETUP OWNER </h4>
+<p> {{data.meetup.CreatedBy}} </p>
+<hr>
+
+<h4> PARTICIPANTS: </h4>
+<p *ngFor="let participant of data.meetup.Participants"> {{participant}} </p>
+<hr>
+
+<!-- <button class="btn btn-primary" *ngIf="alreadyOnMeetup()" style="width: 100%"> JOIN </button>
+<button class="btn btn-danger" *ngIf="!alreadyOnMeetup()" style="width: 100%"> LEAVE </button> -->
+

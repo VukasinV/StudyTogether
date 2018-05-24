@@ -46,4 +46,8 @@ export class ApiService {
   createMeetup (newMeeting) {
     return this.http.post(`${this.URL_API}/Meeting`, newMeeting);
   }
+
+  getUserId () {
+    return this.http.get(`${this.URL_API}/User`);
+  }
 }
