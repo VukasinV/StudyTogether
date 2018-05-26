@@ -14,9 +14,14 @@
         <li><a href=""> Hello {{username}}</a></li>
       </ul>
       <!-- Custom search -->
-      
-
-
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Search profiles" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let profile of profiles" [value]="profile">
+            {{ profile.Fullname }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
       <!-- Custom search -->
       <button class="btn btn-primary" (click)="logout()"> LOGOUT </button>
     </div>

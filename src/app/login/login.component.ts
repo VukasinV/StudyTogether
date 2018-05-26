@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   login(credentials) {
     this.api.login(credentials.username, credentials.password).subscribe(
       data => {
-        localStorage.setItem('token', JSON.stringify(data));
+        localStorage.setItem('token', data.toString());
         this.router.navigate(['home']);
       }, 
       error => {

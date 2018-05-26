@@ -4,6 +4,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { MeetupDatailsComponent } from '../meetup-datails/meetup-datails.component';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-meetup-table',
@@ -14,7 +15,7 @@ export class MeetupTableComponent implements OnInit {
 
   meetups;
 
-  constructor(private api: ApiService, public dialog: MatDialog) {
+  constructor(private api: ApiService, public dialog: MatDialog, public snackBar: MatSnackBar) {
 
   }
 
@@ -34,6 +35,15 @@ export class MeetupTableComponent implements OnInit {
       width: '600px',
       data: {
         meetup: meetup
+      }
+    });
+
+    dialogRef.afterClosed().subscribe( result => {
+      this.refreshTable();
+      if (result !== undefined) {
+        this.snackBar.open(`${result}`, null, {
+          duration: 3000,
+        });
       }
     });
   }

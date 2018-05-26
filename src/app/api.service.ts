@@ -7,10 +7,10 @@ import { Observable } from 'rxjs/Observable';
 export class ApiService {
   
   // Development link
-  // URL_API = 'http://localhost:59105/api';
+  URL_API = 'http://localhost:59105/api';
 
   // Production link
-  URL_API = 'http://studytogetherbackend.azurewebsites.net/api';
+  // URL_API = 'http://studytogetherbackend.azurewebsites.net/api';
   
   constructor (private http: HttpClient) { }
 
@@ -22,12 +22,13 @@ export class ApiService {
     });
   }
 
-  // api call for creating new user
+  // Create new user
   createUser(newUser) {
     return this.http.post(`${this.URL_API}/User`, newUser);
   }
 
-  login(username, password) {
+  // Check credentials, get token and open application
+  login(username: string, password: string) {
   return this.http.post(`${this.URL_API}/Account`, {},
     { headers: {
       'username': username,
@@ -35,19 +36,43 @@ export class ApiService {
     }});
   }
 
+  // Delete later
   test() {
     return this.http.get(`${this.URL_API}/Test`);
   }
 
+  // Get all meetups
   getMeetups() {
     return this.http.get(`${this.URL_API}/Meeting`);
   }
 
+  // Create new meetup
   createMeetup (newMeeting) {
     return this.http.post(`${this.URL_API}/Meeting`, newMeeting);
   }
 
-  getUserId () {
-    return this.http.get(`${this.URL_API}/User`);
+  // Check if user is on selected meeting (when showing details)
+  getParticipant (meetingId: number) {
+    return this.http.get(`${this.URL_API}/Participant/${meetingId}`);
   }
+
+  // Add participant to a meeting NOTE: header values must be of type string!
+  postParticipant (meetupId: string) {
+    return this.http.post(`${this.URL_API}/Participant`, {},
+      { headers: {
+        'MeetingId': meetupId,
+      }});
+  }
+
+  deleteParticipant (meetupId: string) {
+    return this.http.delete(`${this.URL_API}/Participant`,
+      { headers: {
+        'MeetingId': meetupId
+      }});
+  }
+
+  getAllProfiles () {
+    return this.http.get(`${this.URL_API}/Profile`);
+  }
+
 }

@@ -22,6 +22,6 @@
 <p *ngFor="let participant of data.meetup.Participants"> {{participant}} </p>
 <hr>
 
-<!-- <button class="btn btn-primary" *ngIf="alreadyOnMeetup()" style="width: 100%"> JOIN </button>
-<button class="btn btn-danger" *ngIf="!alreadyOnMeetup()" style="width: 100%"> LEAVE </button> -->
+<button class="btn btn-primary" *ngIf="!userAlreadyOnMeetup" (click)="joinMeetup()" style="width: 100%"> JOIN </button>
+<button class="btn btn-danger" *ngIf="userAlreadyOnMeetup" (click)="leaveMeetup()" style="width: 100%"> LEAVE </button>
 
