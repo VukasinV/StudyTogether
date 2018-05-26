@@ -11,6 +11,7 @@ NgForm
 import { Observable } from 'rxjs/Observable'; 
 import { User } from '../model/user';
 import { Router } from '@angular/router';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-register',
@@ -42,6 +43,10 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response ${captchaResponse}:`);
+  }
+  
   goToLogin() {
     this.router.navigate(['']);
   }

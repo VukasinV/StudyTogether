@@ -17,6 +17,7 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 // Here we import custom components
 import { AppComponent } from './app.component';
@@ -79,6 +80,8 @@ const appRoutes = [
     MatInputModule,
     NgxPaginationModule,
     MatSnackBarModule,
+    RecaptchaModule.forRoot(),
+    
   ],
   providers: [
     ApiService,
