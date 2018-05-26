@@ -7,12 +7,13 @@ FormsModule,
 ReactiveFormsModule,
  } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { 
   MatDialogModule,
   MatAutocompleteModule,
   MatInputModule,
-  MatFormFieldModule } from '@angular/material';
+  MatFormFieldModule,
+ } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -41,9 +42,13 @@ const appRoutes = [
      { path : 'register', component: RegisterComponent }
    ]
 },
-{ path: 'home', component: HomeComponent },
-{ path: 'profile', component: ProfileComponent },
-{ path: 'review', component: ReviewComponent },
+  { path: 'home', component: HomeComponent,
+    children: [
+      { path: '', component: MeetupTableComponent },
+      { path: 'profile/:id', component: ProfileComponent },
+    ]
+  },
+  { path: 'review', component: ReviewComponent },
 ];
 
 @NgModule({
@@ -73,7 +78,7 @@ const appRoutes = [
     MatFormFieldModule,
     MatInputModule,
     NgxPaginationModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   providers: [
     ApiService,

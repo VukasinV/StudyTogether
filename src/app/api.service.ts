@@ -75,4 +75,8 @@ export class ApiService {
     return this.http.get(`${this.URL_API}/Profile`);
   }
 
+  getProfile (profileId: number) {
+    return this.http.get(`${this.URL_API}/Profile/${profileId}`);
+  }
+
 }

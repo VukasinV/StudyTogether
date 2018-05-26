@@ -1,20 +1,14 @@
 <div class="row">
 
   <div class="col-lg-12">
-    <app-header></app-header>
+    <app-header (selectedProfile)="openProfile($event)"></app-header>
   </div>
 
-  <div class="col-lg-12">
-    <button class="btn btn-warning" (click)="openCreateMeetupDialog()">
-      CREATE MEETUP
-    </button>
-  </div>
-
-  <div class="col-lg-12" style="text-align: center">
-    <app-meetup-table></app-meetup-table>
+  <div class="col-lg-12" style="text-align: center; height: 500px">
+    <router-outlet></router-outlet>
   </div>
   
-  <div class="col-lg-12 text-center">
+ <div class="col-lg-12 text-center">
     <app-footer></app-footer>
   </div>
 </div>

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { MatDialogModule, MatDialog } from '@angular/material/dialog';
-import { MeetupCreateComponent } from '../meetup-create/meetup-create.component';
 import { ViewChild } from '@angular/core';
 import { MeetupTableComponent } from '../meetup-table/meetup-table.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,19 +14,14 @@ import { MeetupTableComponent } from '../meetup-table/meetup-table.component';
 export class HomeComponent implements OnInit {
   @ViewChild(MeetupTableComponent) meetupTable: MeetupTableComponent;
 
-  constructor(private api: ApiService, public dialog: MatDialog) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   
   ngOnInit() {
   }
-  
-  openCreateMeetupDialog () {
-      const dialogRef = this.dialog.open(MeetupCreateComponent, {
-      height: '450px',
-      width: '600px',
-    });
 
-    const afterMeetupCreated = dialogRef.componentInstance.meetupCreated.subscribe(red => this.meetupTable.refreshTable());
+  openProfile (profileId) {
+    this.router.navigate(['home/profile', profileId]);
   }
 
   test() {

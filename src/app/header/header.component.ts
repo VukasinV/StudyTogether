@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import { MatAutocompleteModule, MatInputModule, MatFormFieldModule } from '@angular/material';
+import { MatAutocompleteModule, 
+  MatInputModule, 
+  MatFormFieldModule, 
+  MatAutocompleteSelectedEvent, 
+  MatOptionSelectionChange } from '@angular/material';
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 
 @Component({
@@ -10,6 +14,7 @@ import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @Output() selectedProfile = new EventEmitter<any>();
 
   username: string;
   myControl: FormControl = new FormControl();
@@ -26,7 +31,12 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     localStorage.clear();
-    this.router.navigate(['']);
+    this.router.navigate(['/']);
   }
 
+  onProfileSelected (event, profile) {
+    if (event.isUserInput) {
+      this.selectedProfile.emit(profile.ProfileId);
+    }
+  }
 }

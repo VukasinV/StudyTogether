@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { MatDialogRef } from '@angular/material';
+import { CalendarModule } from 'primeng/calendar';
 
 @Component({
   selector: 'app-meetup-create',

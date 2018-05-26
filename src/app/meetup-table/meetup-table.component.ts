@@ -5,6 +5,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { MeetupDatailsComponent } from '../meetup-datails/meetup-datails.component';
 import {MatSnackBar} from '@angular/material';
+import { MeetupCreateComponent } from '../meetup-create/meetup-create.component';
 
 @Component({
   selector: 'app-meetup-table',
@@ -46,5 +47,14 @@ export class MeetupTableComponent implements OnInit {
         });
       }
     });
+  }
+
+  openCreateMeetupDialog () {
+      const dialogRef = this.dialog.open(MeetupCreateComponent, {
+      height: '450px',
+      width: '600px',
+    });
+
+    const afterMeetupCreated = dialogRef.componentInstance.meetupCreated.subscribe(res => this.refreshTable());
   }
 }
