@@ -64,6 +64,7 @@ export class ApiService {
       }});
   }
 
+  // Remove participant from meeting
   deleteParticipant (meetupId: string) {
     return this.http.delete(`${this.URL_API}/Participant`,
       { headers: {
@@ -71,10 +72,12 @@ export class ApiService {
       }});
   }
 
+  // Get list of all profiles (for search purpuses)
   getAllProfiles () {
     return this.http.get(`${this.URL_API}/Profile`);
   }
 
+  // Get certain profile
   getProfile (profileId: number) {
     return this.http.get(`${this.URL_API}/Profile/${profileId}`);
   }

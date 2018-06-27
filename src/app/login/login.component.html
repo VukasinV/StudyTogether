@@ -25,12 +25,12 @@
 
     <button 
     type="submit" 
-    class="btn btn-primary" 
+    class="btn btn-default btn-affirmative" 
     (click)="login(loginForm.value)" 
     [disabled]="!loginForm.valid" style="width: 100%">
     LOGIN
   </button>
-  <button class="btn btn-warning"
+  <button class="btn btn-default btn-deny"
   (click)="goToRegister()"
   style="width: 100%; margin-top: 10px">
     I DON'T HAVE ACCOUNT

@@ -6,3 +6,7 @@
 .display-table {
     display: table;
 }
+
+.col-height{
+    height: 600px;
+}

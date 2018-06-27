@@ -6,7 +6,7 @@
       <label>Username</label>
       <input type="text"
               class="form-control"
-              formControlName="Username">        
+              formControlName="Username">       
     </div>
     <!-- <div class="alert alert-danger" *ngIf="createUserForm.controls['Username'].touched  
     && !createUserForm.controls['Username'].valid">
@@ -54,12 +54,12 @@
     <re-captcha (resolved)="resolved($event)" siteKey="6LerpVsUAAAAAFubI6zgoxoKJpc8oiq9lzbukwV-"></re-captcha>
 
     <button type="submit" 
-    class="btn btn-primary" 
+    class="btn btn-default btn-affirmative" 
     (click)="createUser(createUserForm.value)" 
     [disabled]="!createUserForm.valid" style="width: 100%">
     SUBMIT
   </button>
-  <button class="btn btn-warning"
+  <button class="btn btn-default btn-deny"
   (click)="goToLogin()"
   style="width: 100%; margin-top: 10px">
     TAKE ME TO LOGIN

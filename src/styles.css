@@ -1,2 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+<<<<<<< HEAD
+=======
+
+@font-face {
+    font-family: 'baskerville';
+    src: url(assets/fonts/LibreBaskerville-Regular.otf) format("opentype");
+  }
+
+* {
+ font-family: 'baskerville';
+ background-color: #a7d2cb;
+}
+
+.btn-affirmative{
+    background-color: #edc25a;
+    color: white;
+}
+
+.btn-deny{
+    background-color: #874c62;
+    color: white;
+}
+
+.salmon{
+    background-color: #c98474
+}
+>>>>>>> c85b83eada4e0317bc151e189229c226aafcecf8
