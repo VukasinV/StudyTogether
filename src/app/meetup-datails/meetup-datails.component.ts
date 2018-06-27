@@ -8,12 +8,11 @@ import { MatDialogRef } from '@angular/material';
   templateUrl: './meetup-datails.component.html',
   styleUrls: ['./meetup-datails.component.css']
 })
-export class MeetupDatailsComponent implements OnInit {
+export class MeetupDetailsComponent implements OnInit {
 
   userAlreadyOnMeetup: boolean;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data, public dialogRef: MatDialogRef<MeetupDatailsComponent>, private api: ApiService) {
-   }
+  constructor(@Inject(MAT_DIALOG_DATA) public data, public dialogRef: MatDialogRef<MeetupDetailsComponent>, private api: ApiService) {}
 
   ngOnInit() {
     console.log(this.data.meetup.Description);

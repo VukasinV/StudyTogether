@@ -3,7 +3,7 @@ import { ApiService } from '../api.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
-import { MeetupDatailsComponent } from '../meetup-datails/meetup-datails.component';
+import { MeetupDetailsComponent } from '../meetup-datails/meetup-datails.component';
 import {MatSnackBar} from '@angular/material';
 import { MeetupCreateComponent } from '../meetup-create/meetup-create.component';
 
@@ -31,7 +31,7 @@ export class MeetupTableComponent implements OnInit {
 
   showDetails (meetup) {
     console.log(meetup);
-    const dialogRef = this.dialog.open(MeetupDatailsComponent, {
+    const dialogRef = this.dialog.open(MeetupDetailsComponent, {
       height: '450px',
       width: '600px',
       data: {

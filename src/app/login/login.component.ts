@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
       }, 
       error => {
         this.failedLogin = true;
-        console.log(error.Message);
     });
   }
   goToRegister() {

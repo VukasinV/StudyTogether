@@ -33,7 +33,7 @@ import { AuthInterceptor } from './auth.interceptor';
 import { ReviewComponent } from './review/review.component';
 import { MeetupTableComponent } from './meetup-table/meetup-table.component';
 import { MeetupCreateComponent } from './meetup-create/meetup-create.component';
-import { MeetupDatailsComponent } from './meetup-datails/meetup-datails.component';
+import { MeetupDetailsComponent } from './meetup-datails/meetup-datails.component';
 
 const appRoutes = [
   { path: '', 
@@ -65,7 +65,7 @@ const appRoutes = [
     ReviewComponent,
     MeetupTableComponent,
     MeetupCreateComponent,
-    MeetupDatailsComponent,    
+    MeetupDetailsComponent,    
   ],
   imports: [
     BrowserModule,
@@ -93,7 +93,7 @@ const appRoutes = [
   ],
   entryComponents: [
     MeetupCreateComponent,
-    MeetupDatailsComponent
+    MeetupDetailsComponent
   ],
   bootstrap: [AppComponent],
 })
