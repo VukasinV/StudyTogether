@@ -1,12 +1,11 @@
-<div class="col-lg-12">
-        <button class="btn btn-warning" (click)="openCreateMeetupDialog()">
-          CREATE MEETUP
+
+<div class="col-lg-10 col-lg-offset-1">
+        <button class="btn btn-warning" style="float: right; margin-bottom: 5px; width: 230px; height: 50px" (click)="openCreateMeetupDialog()">
+            create new meetup
         </button>
-</div>
-<hr>
 <table class="table table-hover table-bordered">
     <thead>
-        <tr>
+        <tr style="height: 55px" class="text-center">
             <th> Description </th>
             <th> StartsAt </th>
             <th> Location </th>
@@ -16,15 +15,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let meetup of meetups | paginate: { itemsPerPage:5, currentPage: p }">
+        <tr *ngFor="let meetup of meetups | paginate: { itemsPerPage:8, currentPage: p }">
             <td> {{meetup.Description}} </td>
             <td> {{meetup.StartsAt | date:'short' }} </td>
             <td> {{meetup.Location}} </td>
             <td> {{meetup.Capacity}} </td>
             <td> {{meetup.CreatedBy}} </td>
-            <td> <button class="btn" style="width: 100%; height: 100%" (click)="showDetails(meetup)">DETAILS</button> </td>
+            <td> <button class="btn" style="width: 60%; height: 60%" (click)="showDetails(meetup)">details</button> </td>
         </tr>
     </tbody>
 </table>
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
 

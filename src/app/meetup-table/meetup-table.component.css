@@ -1,3 +1,19 @@
-.table th {
+.table th,td{
     text-align: center;
+    background-color: #c98474;
+    border-left: none;
+    border-right: none;
+    color: white;
+    vertical-align: middle;
+}
+
+.table td{
+    border-left: none;
+    border-right: none;
+    color: black;
+}
+
+.col-lg-10 button{
+    border: none;
+    background-color: #874c62;
 }
