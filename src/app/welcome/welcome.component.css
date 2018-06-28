@@ -7,6 +7,12 @@
     display: table;
 }
 
-.col-height{
-    height: 600px;
+.welcome {
+    height: 1080px;
+    background-color: #a7d2cb;
 }
+
+.logo {
+    margin-top: 9%;
+}
+

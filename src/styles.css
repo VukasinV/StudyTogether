@@ -8,17 +8,34 @@
 
 * {
  font-family: 'baskerville';
- background-color: #a7d2cb;
+ /* background-color: #a7d2cb; */
+}
+
+.default {
+    background-color: #a7d2cb;
 }
 
 
-.btn-affirmative{
+.btn-affirmative {
     background-color: #edc25a;
+    color: black;
+}
+
+.btn-affirmative:hover {
+    background-color: #bc8b14;
+}
+
+.btn-affirmative:hover:disabled {
+    background-color: #f4e897
+}
+
+.btn-deny {
+    background-color: #874c62;
     color: white;
 }
 
-.btn-deny{
-    background-color: #874c62;
+.btn-deny:hover {
+    background-color: #512d3b;
     color: white;
 }
 
@@ -29,5 +46,9 @@
 
 .valign {
     margin-top: 20%
+}
+
+.text-eggplant {
+    color: #512d3b;
 }
 
