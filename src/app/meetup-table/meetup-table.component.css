@@ -8,6 +8,8 @@
 }
 
 .table td{
+    vertical-align: middle;
+    text-align: center;
     border-left: none;
     border-right: none;
     color: black;

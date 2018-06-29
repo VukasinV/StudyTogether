@@ -1,12 +1,15 @@
-.form {
+.form{
     z-index: 1;
-    background: #FFFFFF;
+    background: repeating-linear-gradient(-45deg, 
+    #a7d2cb, #a7d2cb 3px, 
+    white 0, white 130px);
     /* max-width: 360px; */
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     width: 390px;
   }
+
 
   .background-white {
       background-color: white;

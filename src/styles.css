@@ -21,13 +21,13 @@
     color: black;
 }
 
-.btn-affirmative:hover {
+/* .btn-affirmative:hover {
     background-color: #bc8b14;
 }
 
 .btn-affirmative:hover:disabled {
-    background-color: #f4e897
-}
+    background-color: #f4e897;
+} */
 
 .btn-deny {
     background-color: #874c62;

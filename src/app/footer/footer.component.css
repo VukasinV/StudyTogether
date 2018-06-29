@@ -1,3 +1,13 @@
-* {
-    background-color: brown;
+*{
+    background: #724455;
+    color: rgba(233, 233, 233, 0.486);
+}
+.col-md-4 h5{
+    
+    color: #c98474;
+
+}
+
+.btn:hover{
+    background-color:rgba(233, 233, 233, 0.486);
 }
