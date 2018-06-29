@@ -16,27 +16,27 @@
       </div>
 
       <div class="form-group">
-         <label> When it will start? </label>
+         <label> When will it start? </label>
          <input type="text" 
                 class="form-control"
                 formControlName="startsAt">
         </div>
 
       <div class="form-group">
-        <label> How many people you would like to be on your meeting? </label>
+        <label> How many people would you like to be on your meeting? </label>
         <input type="text" 
                 class="form-control"
                 formControlName="capacity">
       </div>
   
       <button type="submit" 
-              class="btn btn-primary" 
+              class="btn btn-default btn-affirmative" 
               (click)="createMeetup(form.value)"
               [disabled]="!form.valid" style="width: 100%">
       SUBMIT
     </button>
 
-    <button class="btn" 
+    <button class="btn btn-deny" 
             (click)="close()"
             style="width: 100%; margin-top: 10px;">
       CANCEL

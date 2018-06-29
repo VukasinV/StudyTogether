@@ -1,34 +1,32 @@
-
 <div class="col-lg-10 col-lg-offset-1">
-        <button class="btn btn-warning" style="float: right; margin-bottom: 10px; width: 230px; height: 50px" (click)="openCreateMeetupDialog()">
-            create new meetup
-        </button>
-<table class="table table-hover table-bordered">
+  <button class="btn btn-warning" style="float: right; margin-bottom: 10px; width: 230px; height: 50px" (click)="openCreateMeetupDialog()">
+    create new meetup
+  </button>
+  <table class="table table-hover table-bordered">
     <thead>
-        <tr style="height: 55px" class="text-center">
-            <th> Description </th>
-            <th> StartsAt </th>
-            <th> Location </th>
-            <th> Capacity </th>
-            <th> CreatedBy </th>
-            <th> Options </th>
-        </tr>
+      <tr style="height: 55px" class="text-center">
+        <th> Description </th>
+        <th> StartsAt </th>
+        <th> Location </th>
+        <th> Capacity </th>
+        <th> CreatedBy </th>
+        <th> Options </th>
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let meetup of meetups | paginate: { itemsPerPage:8, currentPage: p }">
-            <td> {{meetup.Description}} </td>
-            <td> {{meetup.StartsAt | date:'short' }} </td>
-            <td> {{meetup.Location}} </td>
-            <td> {{meetup.Capacity}} </td>
-            <td> {{meetup.CreatedBy}} </td>
-            <td> <button class="btn" style="width: 60%; height: 60%" (click)="showDetails(meetup)">details</button> </td>
-        </tr>
+      <tr *ngFor="let meetup of meetups | paginate: { itemsPerPage:8, currentPage: p }">
+        <td> {{meetup.Description}} </td>
+        <td> {{meetup.StartsAt | date:'short' }} </td>
+        <td> {{meetup.Location}} </td>
+        <td> {{meetup.Capacity}} </td>
+        <td> {{meetup.CreatedBy}} </td>
+        <td>
+          <button class="btn" style="width: 60%; height: 60%" (click)="showDetails(meetup)">details</button>
+        </td>
+      </tr>
     </tbody>
-</table>
-<div class="row" style="margin-bottom: 15px">
-    
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
-
-</div> 
+  </table>
+  <div class="row" style="margin-bottom: 15px;">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
 </div>
-

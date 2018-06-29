@@ -1,24 +1,24 @@
-<h4> DESCRIPTION </h4> 
+<h4> Description </h4> 
 <p> {{data.meetup.Description}} </p>
 <hr>
 
-<h4> STARTS AT </h4>
+<h4> Starts at </h4>
 <p> {{data.meetup.StartsAt | date: 'short'}} </p>
 <hr>
 
-<h4> LOCATION </h4>
+<h4> Location </h4>
 <p> {{data.meetup.Location}} </p>
 <hr>
 
-<h4> CAPACITY </h4>
+<h4> Capacity </h4>
 <p> {{data.meetup.Capacity}}</p>
 <hr>
 
-<h4> MEETUP OWNER </h4>
+<h4> MeetUp Creator </h4>
 <p> {{data.meetup.CreatedBy}} </p>
 <hr>
 
-<h4> PARTICIPANTS: </h4>
+<h4> Participants: </h4>
 <p *ngFor="let participant of data.meetup.Participants"> {{participant}} </p>
 <hr>
 

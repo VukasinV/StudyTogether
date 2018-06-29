@@ -35,6 +35,7 @@ import { MeetupTableComponent } from './meetup-table/meetup-table.component';
 import { MeetupCreateComponent } from './meetup-create/meetup-create.component';
 import { MeetupDetailsComponent } from './meetup-datails/meetup-datails.component';
 
+
 const appRoutes = [
   { path: '', 
   component: WelcomeComponent,
@@ -81,7 +82,6 @@ const appRoutes = [
     NgxPaginationModule,
     MatSnackBarModule,
     RecaptchaModule.forRoot(),
-    
   ],
   providers: [
     ApiService,

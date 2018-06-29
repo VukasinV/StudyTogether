@@ -22,4 +22,11 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
+
+
+function sendEmail() {
+  const mejl = "contact@test.com";
+  location.href = "mailto:" + mejl;
+}
