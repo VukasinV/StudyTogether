@@ -1,57 +1,47 @@
 
-<div class="container col-lg-6 valign">
-  <form [formGroup]="createUserForm">
+<div class="container col-lg-6 col-lg-offset-3 valign form">
+  <form [formGroup]="createUserForm" class="background-white">
 
-    <div class="form-group">
-      <label>Username</label>
+    <div class="form-group background-white">
+      <label class="background-white">Username</label>
       <input type="text"
               class="form-control"
               formControlName="Username">       
     </div>
-    <!-- <div class="alert alert-danger" *ngIf="createUserForm.controls['Username'].touched  
-    && !createUserForm.controls['Username'].valid">
-      <strong> This field is required! </strong>
-    </div> -->
 
-    <div class="form-group">
-      <label>Password</label>
+    <div class="form-group background-white">
+      <label class="background-white">Password</label>
       <input type="password" 
               class="form-control"
               formControlName="Password">
     </div>
-    <!-- <div class="alert alert-danger" *ngIf="createUserForm.controls['Password'].touched 
-    && !createUserForm.controls['Password'].valid">
-      <strong> Password must be at least 8 characters long! </strong>
-    </div> -->
 
-    <div class="form-group">
-      <label>Email</label>
+    <div class="form-group background-white">
+      <label class="background-white">Email</label>
       <input type="email"
             class="form-control"
             formControlName="Email">
     </div>
-    <!-- <div class="alert alert-danger" *ngIf="createUserForm.controls['Email'].touched 
-    && !createUserForm.controls['Email'].valid">
-      <strong> Please type correct email! </strong>
-    </div> -->
 
-    <div class="form-group">
-      <label>Fullname</label>
+    <div class="form-group background-white">
+      <label class="background-white">Fullname</label>
       <input type="text"
             class="form-control"
             formControlName="Fullname">
     </div>
 
-    <div class="alert alert-danger" 
+    <div class="alert alert-danger text-eggplant background-white" 
     *ngIf="createUserForm.controls['Username'].touched 
     && createUserForm.controls['Password'].touched
     && createUserForm.controls['Email'].touched
     && createUserForm.controls['Fullname'].touched
     && createUserForm.invalid">
-      <strong> Please check your input. </strong>
+      <strong class="background-white"> Please check your input. </strong>
     </div>
 
-    <re-captcha (resolved)="resolved($event)" siteKey="6LerpVsUAAAAAFubI6zgoxoKJpc8oiq9lzbukwV-"></re-captcha>
+    <div class="background-white">
+      <re-captcha (resolved)="resolved($event)" siteKey="6LerpVsUAAAAAFubI6zgoxoKJpc8oiq9lzbukwV-"></re-captcha>
+    </div>
 
     <button type="submit" 
     class="btn btn-default btn-affirmative" 
@@ -72,9 +62,9 @@
 
 </div>
 
-<div class="col-lg-6 text-center valign">
+<!-- <div class="col-lg-6 text-center valign">
   <h2> How do you register: </h2>
   <p> Make sure you input all fields.</p>
   <p> Make sure your password has at least 8 characters long.</p>
   <p> Make sure you input proper email.</p>
-</div>
+</div> -->

@@ -7,10 +7,10 @@ import { Observable } from 'rxjs/Observable';
 export class ApiService {
   
   // Development link
-  URL_API = 'http://localhost:59105/api';
+  // URL_API = 'http://localhost:59105/api';
 
   // Production link
-  // URL_API = 'http://studytogetherbackend.azurewebsites.net/api';
+  URL_API = 'http://studytogetherbackend.azurewebsites.net/api';
   
   constructor (private http: HttpClient) { }
 
