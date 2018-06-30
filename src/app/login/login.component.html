@@ -41,5 +41,11 @@
   *ngIf="failedLogin">
     <strong class="background-white"> Wrong username or password </strong>
   </div>
-
 </div>
+
+
+<input type="file" accept="image/*" [(ngModel)]=base64image (change)="prikazi($event)">
+<img [src]="base64image1" class="img-thumbnail">
+<button class="btn btn-primary" (click)="prikazi()">prikazi</button>
+
+

@@ -2,7 +2,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { MatDialogRef } from '@angular/material';
-import { CalendarModule } from 'primeng/calendar';
+import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-meetup-create',
@@ -14,21 +15,31 @@ export class MeetupCreateComponent implements OnInit {
   @Output() meetupCreated = new EventEmitter<void>();
 
   form: FormGroup;
+  settings = {
+    bigBanner: true,
+    timePicker: true,
+    format: 'short',
+    defaultOpen: false,
+};
 
   constructor(public dialogRef: MatDialogRef<MeetupCreateComponent>, 
               private fb: FormBuilder, 
-              private api: ApiService) { }
+              private api: ApiService,
+            private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.form = this.fb.group({
       description: new FormControl('', Validators.required),
       location: new FormControl('', Validators.required),
-      startsAt: new FormControl('', Validators.required),
+      startsAt: new FormControl(new Date(), Validators.required),
       capacity: new FormControl('', Validators.required)
     });
   }
 
   createMeetup(newMeetup) {
+    let datePipe  = new DatePipe('en-US');
+    let formattedDate = datePipe.transform(newMeetup.startsAt, 'short');
+    newMeetup.startsAt = formattedDate;
     this.api.createMeetup(newMeetup).subscribe(
       data => {
         this.meetupCreated.emit();

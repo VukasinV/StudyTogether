@@ -15,11 +15,16 @@
                 formControlName="location">
       </div>
 
-      <div class="form-group">
-         <label> When will it start? </label>
+      <!-- <div class="form-group">
+         <label> When it will start? </label>
          <input type="text" 
                 class="form-control"
                 formControlName="startsAt">
+        </div> -->
+
+        <div class="form-group">
+         <label> When it will start? </label>
+         <angular2-date-picker formControlName="startsAt" [settings]="settings"></angular2-date-picker>
         </div>
 
       <div class="form-group">
