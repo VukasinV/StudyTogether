@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 
 // Here we import custom components
 import { AppComponent } from './app.component';
@@ -34,6 +35,7 @@ import { ReviewComponent } from './review/review.component';
 import { MeetupTableComponent } from './meetup-table/meetup-table.component';
 import { MeetupCreateComponent } from './meetup-create/meetup-create.component';
 import { MeetupDetailsComponent } from './meetup-datails/meetup-datails.component';
+import { DatePipe } from '@angular/common';
 
 const appRoutes = [
   { path: '', 
@@ -81,7 +83,7 @@ const appRoutes = [
     NgxPaginationModule,
     MatSnackBarModule,
     RecaptchaModule.forRoot(),
-    
+    AngularDateTimePickerModule
   ],
   providers: [
     ApiService,
@@ -89,7 +91,8 @@ const appRoutes = [
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    DatePipe
   ],
   entryComponents: [
     MeetupCreateComponent,
