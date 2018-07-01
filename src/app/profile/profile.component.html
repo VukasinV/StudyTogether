@@ -7,10 +7,21 @@
       <p> {{ profileInfo.Fullname }} </p>
       <h2> OPIS: </h2>
       <p> {{ profileInfo.Description }} </p>
+      <h2> Rola: </h2>
+      <p> {{ profileInfo.RoleName }} </p>
+    </div>
+
+    <div *ngIf="admin"> 
+      <h2> DEO ZA ADMINA </h2>
+      <strong> Ukupno korisnika: </strong>
+      <p> {{ adminInfo.TotalUsers }} </p>
+      <strong> Ukupno admina: </strong>
+      <p> {{ adminInfo.TotalAdmins }} </p>
+      <strong> Korisnik sa najvise kreiranih sastanaka: </strong>
+      <p> {{ adminInfo.MVPUser }} </p>     
     </div>
   
     <div class="col-lg-8 text-center vertically-align-center">
-      <p> Pozeljno kreirati review komponentu koja ce se izlistavati za svaki profil posebno(ngfor) </p>
       <div>
         <app-review></app-review>
       </div>

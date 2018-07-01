@@ -83,7 +83,7 @@
       "check-else",
       "check-whitespace"
     ],
-    "prefer-const": false,
+    "prefer-const": true,
     "quotemark": [
       false,
       "single"

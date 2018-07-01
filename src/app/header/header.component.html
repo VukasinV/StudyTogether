@@ -11,12 +11,12 @@
       <ul class="nav navbar-nav">
         <li><a [routerLink]="['/home']">Home</a></li>
         <li><a [routerLink]="['profile/-1']">Profile</a></li>
-        <li><a href=""> Hello, {{username}}</a></li>
+        <li><a href=""> Hello, </a></li>
       </ul>
       <!-- Custom search -->
       <div style="float: right">
       <mat-form-field class="example-full-width">
-        <input type="text" placeholder="Search profiles" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <input type="text" placeholder="Search profiles" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" (input)="filterProfiles($event)">
           <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let profile of profiles" [value]="profile.Fullname" (onSelectionChange)="onProfileSelected($event, profile)">
                 {{ profile.Fullname }}

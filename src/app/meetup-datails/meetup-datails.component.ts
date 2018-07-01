@@ -10,7 +10,7 @@ import { MatDialogRef } from '@angular/material';
 })
 export class MeetupDetailsComponent implements OnInit {
 
-  userAlreadyOnMeetup: boolean;
+  userAlreadyOnMeetup: boolean; 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data, public dialogRef: MatDialogRef<MeetupDetailsComponent>, private api: ApiService) {}
 

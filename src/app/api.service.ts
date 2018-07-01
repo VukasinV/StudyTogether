@@ -58,23 +58,21 @@ export class ApiService {
 
   // Add participant to a meeting NOTE: header values must be of type string!
   postParticipant (meetupId: string) {
-    return this.http.post(`${this.URL_API}/Participant`, {},
-      { headers: {
-        'MeetingId': meetupId,
-      }});
+    return this.http.post(`${this.URL_API}/Participant`, { "MeetingId": meetupId });
   }
 
   // Remove participant from meeting
   deleteParticipant (meetupId: string) {
-    return this.http.delete(`${this.URL_API}/Participant`,
-      { headers: {
-        'MeetingId': meetupId
-      }});
+    return this.http.delete(`${this.URL_API}/Participant/${meetupId}`);
   }
 
   // Get list of all profiles (for search purpuses)
   getAllProfiles () {
     return this.http.get(`${this.URL_API}/Profile`);
+  }
+
+  getProfilesByName (fullname: string) {
+    return this.http.get(`${this.URL_API}/Profile?fullname=${fullname}`);
   }
 
   // Get certain profile

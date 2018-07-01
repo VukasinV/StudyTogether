@@ -7,6 +7,7 @@ import { MatAutocompleteModule,
   MatAutocompleteSelectedEvent, 
   MatOptionSelectionChange } from '@angular/material';
 import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-header',
@@ -19,14 +20,16 @@ export class HeaderComponent implements OnInit {
   username: string;
   myControl: FormControl = new FormControl();
   profiles;
+  filteredProfiles: Observable<any[]>;
 
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit() {
-    this.api.test().subscribe(res => this.username = res.toString());
-    this.api.getAllProfiles().subscribe(
-      data => this.profiles = data
-    );
+  }
+
+  filterProfiles(event: any) {
+    this.api.getProfilesByName(event.target.value).subscribe(data => this.profiles = data);
+    console.log(event.target.value);
   }
 
   logout() {

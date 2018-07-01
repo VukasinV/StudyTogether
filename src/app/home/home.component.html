@@ -1,10 +1,12 @@
 <div class="row default">
-
+  <div class="row">
+    <div class="col-lg-12">
+      <app-header (selectedProfile)="openProfile($event)"></app-header>
+    </div>
+  </div>
   <div class="row default">
-    <div class="col-lg-12" style="text-align: center">
-        
+    <div class="col-lg-12" style="text-align: center;height:720px">        
       <router-outlet></router-outlet>
-      <!-- <app-meetup-table></app-meetup-table> -->
     </div>
   </div>  
 

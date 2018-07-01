@@ -10,14 +10,28 @@ import { ApiService } from '../api.service';
 export class ProfileComponent implements OnInit {
 
   profileInfo;
+  admin: boolean;
+  adminInfo;
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe( 
       params => {
         this.api.getProfile(params.id).subscribe(
-          data => this.profileInfo = data 
+          data => {
+            this.profileInfo = data;
+            if (this.profileInfo.RoleName === "Admin") {
+              console.log(this.profileInfo.RoleName);
+              this.admin = true;
+            } else {
+              console.log(this.profileInfo.RoleName);
+              this.admin = false;
+            }
+            console.log(data);
+          }
         );
+
+        this.api.test().subscribe(data => this.adminInfo = data);
     });
   }
 
