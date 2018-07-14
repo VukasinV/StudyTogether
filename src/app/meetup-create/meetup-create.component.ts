@@ -37,8 +37,8 @@ export class MeetupCreateComponent implements OnInit {
   }
 
   createMeetup(newMeetup) {
-    let datePipe  = new DatePipe('en-US');
-    let formattedDate = datePipe.transform(newMeetup.startsAt, 'short');
+    const datePipe  = new DatePipe('en-US');
+    const formattedDate = datePipe.transform(newMeetup.startsAt, 'short');
     newMeetup.startsAt = formattedDate;
     this.api.createMeetup(newMeetup).subscribe(
       data => {

@@ -3,6 +3,10 @@
     <div class="col-lg-4 text-center">
       <img src="" alt="" class="img-circle">
       <h1> OVO JE SLIKA PROFILA:  </h1>
+      
+      <input type="file" accept="image/*" (change)="prikazi($event)">
+      <img [src]="image" class="img-thumbnail">
+
       <h2> IME I PREZIME: </h2>
       <p> {{ profileInfo.Fullname }} </p>
       <h2> OPIS: </h2>

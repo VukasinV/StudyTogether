@@ -84,7 +84,7 @@ const appRoutes = [
     NgxPaginationModule,
     MatSnackBarModule,
     RecaptchaModule.forRoot(),
-    AngularDateTimePickerModule
+    AngularDateTimePickerModule,
   ],
   providers: [
     ApiService,

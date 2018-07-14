@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ApiService } from '../api.service';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { MeetupDetailsComponent } from '../meetup-datails/meetup-datails.component';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 import { MeetupCreateComponent } from '../meetup-create/meetup-create.component';
 
 @Component({
@@ -13,8 +12,9 @@ import { MeetupCreateComponent } from '../meetup-create/meetup-create.component'
   styleUrls: ['./meetup-table.component.css']
 })
 export class MeetupTableComponent implements OnInit {
-
+  
   meetups;
+  p = 1;
 
   constructor(private api: ApiService, public dialog: MatDialog, public snackBar: MatSnackBar) {
 

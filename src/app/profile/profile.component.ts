@@ -12,6 +12,8 @@ export class ProfileComponent implements OnInit {
   profileInfo;
   admin: boolean;
   adminInfo;
+  image;
+
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
 
   ngOnInit() {
@@ -33,6 +35,18 @@ export class ProfileComponent implements OnInit {
 
         this.api.test().subscribe(data => this.adminInfo = data);
     });
+  }
+
+  prikazi (event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = (onLoadEvent: any) => {
+        this.image = onLoadEvent.target.result;
+      };
+  
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
 }
